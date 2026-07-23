@@ -7,7 +7,7 @@ import errorHandler from "./middleware/errorHandler.js";
 const app = express();
 
 app.use(cors({
-    origin:['https://harsh-taskflow.vercel.app/'],
+    origin:["https://harsh-taskflow.vercel.app/"],
     credentials:true
 }));
 
