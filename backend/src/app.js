@@ -6,11 +6,21 @@ import notFound from "./middleware/NotFound.js";
 import errorHandler from "./middleware/errorHandler.js";
 const app = express();
 
-app.use(cors({
-    origin:["https://harsh-taskflow.vercel.app/"],
-    credentials:true
-}));
+// app.use(cors({
+//     origin:["https://harsh-taskflow.vercel.app"],
+//     credentials:true
+// }));
 
+app.use(cors({
+  origin: [
+    "https://harsh-taskflow.vercel.app",
+    "http://localhost:5173",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
+app.options("*", cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
